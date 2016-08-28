@@ -1,0 +1,94 @@
+<template>
+    <div class='home'>
+        <div class='banner'><img src='https://img.alicdn.com/tps/TB1to3vJFXXXXXMaXXXXXXXXXXX-1190-45.jpg'/>
+        </div>
+        <div class='Menus'>
+            <div class='bannerL'><img src="https://img.alicdn.com/tps/TB1EaH6JFXXXXbIXVXXXXXXXXXX-190-130.gif"/>
+            </div>
+            <ul class='menulist'>
+                <li v-for='e in homearr'>
+                    <i>{{$index}}</i>
+                    <span v-for='v in e.list'>
+                    <a href='#' target="_blank">{{v.t}}</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class='searchbox'>
+            <ul class='searchnav'>
+                <li v-for='(index,e) in nlist' v-on:click='onHandle'>
+                    <a v-if='index==0' class='s'>{{e.t}}</a>
+                    <a v-else>{{e.t}}</a>
+                </li>
+
+            </ul>
+            <div class='search'>
+                <input type='text' id='searchinput' v-model='filltxt' name='searchinput' value='欢迎来搜索！'/>
+                <input type='button' id='searchbtn' value='搜索'/>
+
+                <div class='outText'>{{filltxt}}</div>
+                <p>关闭</p>
+            </div>
+        </div>
+        <div class='brandrect'>
+        </div>
+    </div>
+</template>
+<script>
+    export default {
+        data: function () {
+            return {
+                title: 'ok',
+                nlist: [{t: '宝贝', link: ''}, {t: '天猫', link: ''}, {t: '店铺', link: ''}],
+                homearr: [{
+                    list: [{
+                        t: '女装',
+                        flag: false,
+                        link: 'https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.HZIJf8'
+                    }, {
+                        t: '男装',
+                        flag: false,
+                        link: 'https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.HZIJf8'
+                    }, {
+                        t: '内衣',
+                        flag: false,
+                        link: 'https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.HZIJf8'
+                    }]
+                }, {
+                    list: [{
+                        t: '美妆',
+                        flag: false,
+                        link: 'https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.HZIJf8'
+                    }, {
+                        t: '洗护',
+                        flag: false,
+                        link: 'https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.HZIJf8'
+                    }, {
+                        t: '保健品',
+                        flag: false,
+                        link: 'https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.HZIJf8'
+                    }]
+                }, {
+                    list: [{
+                        t: '家电',
+                        flag: false,
+                        link: 'https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.HZIJf8'
+                    }, {
+                        t: '数码',
+                        flag: false,
+                        link: 'https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.HZIJf8'
+                    }, {
+                        t: '手机',
+                        flag: false,
+                        link: 'https://www.taobao.com/market/nvzhuang/index.php?spm=a21bo.50862.201867-main.2.HZIJf8'
+                    }]
+                }]
+            }
+        },
+        method: {
+            onHandle: function (e) {
+                console.log(e.target.tagName);
+            }
+        }
+    }
+</script>
