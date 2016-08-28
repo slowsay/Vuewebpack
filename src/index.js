@@ -28,6 +28,7 @@ router.map({
         component: Home
     }
 });
+
 /**
  *@description 不存在页面跳转home
  */

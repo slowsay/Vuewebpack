@@ -1,7 +1,9 @@
 <template>
-    <header-component></header-component>
-    <router-view keep-alive transition transition-mode="out-in"></router-view>
-    <footer-component></footer-component>
+    <div>
+        <header-component></header-component>
+        <router-view keep-alive transition transition-mode="out-in"></router-view>
+        <footer-component></footer-component>
+    </div>
 </template>
 
 <script>
