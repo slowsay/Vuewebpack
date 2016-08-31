@@ -57,6 +57,7 @@ npm start
 - vmodel数据双向
 - router路由
 - 添加表单test,缺陷:对于编程方式输出效果值不是很方便,利用v-model绑定数据还是可以的
+- 测试transition,是一个callback功能,官方称为钩子
 
 
 

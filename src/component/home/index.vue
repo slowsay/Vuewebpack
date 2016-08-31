@@ -23,12 +23,12 @@
 
             </ul>
             <div class='search'>
-                <input type='text' id='searchinput' v-model='filltxt' name='searchinput'
-                       value={{filltxt}}/>
+                <input type='text' id='searchinput' v-model='filltxt' name='searchinput' value={{filltxt}}
+                />
                 <input type='button' id='searchbtn' value='搜索' v-on:click.self='onHandle'/>
 
                 <div class='outText'>{{filltxt}}</div>
-                <p v-if='show' :transition='transitionName'>{{title}}</p>
+                <p v-if='show' transition='expand'>{{title}}</p>
                 <select v-model="you">
                     <option selected>hello</option>
                     <option>nihao</option>
@@ -48,11 +48,11 @@
         name: 'Home',
         data: function () {
             return {
-                show: false,
+                show: true,
                 transitionName: 'fade',
                 title: '关闭',
                 close: true,
-                filltxt: '欢迎来搜索',
+                filltxt: '点击搜索可能有变化哦',
                 nlist: [{t: '宝贝', link: ''}, {t: '天猫', link: ''}, {t: '店铺', link: ''}],
                 homearr: [{
                     list: [{
@@ -101,18 +101,29 @@
         },
         methods: {
             onHandle: function (e) {
-                Vue.transition('expand', {
-                    enter:function(){
+                /**
+                 *@description 监听transition,所谓的钩子,也是一个绑定功能
+                 */
 
+                Vue.transition('expand', {
+                    enter: function (el) {
+                        console.log('enter');
+//                        el.textContent = this.title;
+                    },
+                    leave: function (el) {
+//                        el.textContent = 'leave';
+                        console.log('leave');
                     }
                 });
                 if (this.close) {
-                    this.title = '开启'
+                    this.title = '开启';
                     this.close = false;
+                    this.show = false;
                 }
                 else {
-                    this.title = '关闭'
+                    this.title = '关闭';
                     this.close = true;
+                    this.show = true;
                 }
             }
         }
