@@ -55,3 +55,7 @@ b{color:#f40}
 .footer{clear:both;border-top:2px solid #cc0000;color:#888;width:1190px;margin:0 auto}
 .footer div{padding:30px 10px;line-height:25px;}
 .footer b{padding:0 5px}
+
+/*motion*/
+.expand-transition{transition:all .3s ease;height:30px; padding:10px;background:#ff0;overflow:hidden;}
+.expand-enter,.expand-leave{ height:0; padding:0 10px;opacity:0}

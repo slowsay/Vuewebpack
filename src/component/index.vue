@@ -10,6 +10,12 @@
     import HeaderComponent from 'vue!./headers.vue'
     import FooterComponent from 'vue!./footers.vue'
     export default {
+        data: function () {
+            return {
+                privateState: {},
+                sharedState: {meg: 'hello'}
+            }
+        },
         components: {
             'header-component': HeaderComponent,
             'footer-component': FooterComponent

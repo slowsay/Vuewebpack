@@ -25,10 +25,17 @@
             <div class='search'>
                 <input type='text' id='searchinput' v-model='filltxt' name='searchinput'
                        value={{filltxt}}/>
-                <input type='button' id='searchbtn' value='搜索' v-on:click.self='onHandle' />
+                <input type='button' id='searchbtn' value='搜索' v-on:click.self='onHandle'/>
 
                 <div class='outText'>{{filltxt}}</div>
-                <p>关闭</p>
+                <p v-if='show' :transition='transitionName'>{{title}}</p>
+                <select v-model="you">
+                    <option selected>hello</option>
+                    <option>nihao</option>
+                    <option>mm</option>
+                </select>
+                <span>{{you}}</span>
+                <input type="checkbox" v-model='me' v-bind:true-value='0' v-bind:true-value='1'/>
             </div>
         </div>
         <div class='brandrect'>
@@ -36,11 +43,15 @@
     </div>
 </template>
 <script>
+    import Vue from 'vue';
     export default {
-        name:'Home',
+        name: 'Home',
         data: function () {
             return {
-                title: 'ok',
+                show: false,
+                transitionName: 'fade',
+                title: '关闭',
+                close: true,
                 filltxt: '欢迎来搜索',
                 nlist: [{t: '宝贝', link: ''}, {t: '天猫', link: ''}, {t: '店铺', link: ''}],
                 homearr: [{
@@ -90,7 +101,19 @@
         },
         methods: {
             onHandle: function (e) {
-                console.log('ok');
+                Vue.transition('expand', {
+                    enter:function(){
+
+                    }
+                });
+                if (this.close) {
+                    this.title = '开启'
+                    this.close = false;
+                }
+                else {
+                    this.title = '关闭'
+                    this.close = true;
+                }
             }
         }
     }

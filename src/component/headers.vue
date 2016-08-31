@@ -4,10 +4,10 @@
         <div class='r'></div>
         <div class='c'>
             <ul class='header_l'>
-                <li><a v-link={path:'/login'}><b>{{title}}</b></a><a v-link={path:"/user"}>免费注册</a>
+                <li><a v-link='{name:"login"}'><b>{{title}}</b></a><a v-link='{name:"user"}'>免费注册</a>
                 </li>
                 <li>
-                    <a v-link={path:'/home'}>手机逛淘宝</a>
+                    <a v-link='{name:"home"}'>手机逛淘宝</a>
                 </li>
             </ul>
             <ul class='header_r'>
